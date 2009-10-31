@@ -1,0 +1,7 @@
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# send all requests as index.php?route=<req>
+RewriteRule ^(.*)$ index.php?route=$1 [L,QSA]

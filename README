@@ -1,0 +1,44 @@
+Really Simple PHP MVC
+=====================
+
+This is an example of a really simple PHP application that implements the 
+Model-View-Controller pattern [1]. It's meant to be instructive, which is why
+it doesn't implement features like ORM or authentication found in popular
+frameworks.
+
+Overview
+--------
+
+To understand this project, open "pub/index.php". This file configures the
+basic constants like `ROOT` and APP_PATH`. It then calls "app/bootstrap.php",
+which configures the autoloading of our classes. Finally, we start the
+application by calling the `delegate` method of "app/classes/Router.php". The
+routing performed in `Router` is the core of this framework. It is responsible
+for mapping URIs like
+
+    <http://example.com/?route=controller/method/arg1/arg2/.../argN>
+
+to the appropriate controller. Aside from this class, everything else can be
+modified/discarded. The codebase is tiny (~264K with examples), so it should
+be easy enough to grasp. Feel free to contact me with any question [2].
+
+Note: The .htaccess file is _not_ required, but it is used in the examples. If
+      you'd rather not use it, use `/index.php?route=<some-route>` instead.
+
+Filesystem
+----------
+
+    |-- app                 => site root (not web-root)
+    |   |-- classes         => non-(model|controller) classes
+    |   |-- controllers     => controller (FooController.php)
+    |   |-- models          => model classes (FooModel.php)
+    |   `-- views           => simple templating files
+    `-- pub                 => web root
+
+
+Links
+-----
+
+[1] <http://en.wikipedia.org/wiki/Model-View-Controller>
+[2] <dev at jmdeldin dot com>
+
